@@ -14,26 +14,37 @@ $manifestVersion = isset($Manifest->{'version'}) ? $Manifest->{'version'} : '';
 ?>
 
 <!DOCTYPE html>
+<?php
+if (isset($_SESSION['MM_Usuario'])) {
+    echo '<html lang="pt-BR">'; // Fix versão antiga MK-AUTH
+} else {
+    echo '<html lang="pt-BR" class="has-navbar-fixed-top">';
+}
+?>
 <html lang="pt-BR">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>MK - AUTH :: <?php echo htmlspecialchars($manifestTitle . " - V " . $manifestVersion); ?></title>
+    <title>MK - AUTH :: <?php echo $Manifest->{'name'} . " - V " . $Manifest->{'version'};  ?></title>
 
     <link href="../../estilos/mk-auth.css" rel="stylesheet" type="text/css" />
     <link href="../../estilos/font-awesome.css" rel="stylesheet" type="text/css" />
 
     <script src="../../scripts/jquery.js"></script>
     <script src="../../scripts/mk-auth.js"></script>
+    <link href="../../estilos/bi-icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
         /* Estilos CSS personalizados */
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
 
         form,
